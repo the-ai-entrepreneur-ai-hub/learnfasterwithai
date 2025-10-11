@@ -8,12 +8,14 @@
 
 ## 🎓 Overview
 
-**Learn with DeepMind** is a Chrome browser extension that revolutionizes how students learn by combining the power of Google's Gemini AI with visual learning techniques. Inspired by principles of visual learning and deep pattern recognition, this extension helps students:
+**Learn with DeepMind** is a Chrome extension that revolutionizes how you learn by harnessing the power of cutting-edge AI. Whether you're using Google's Gemini models or accessing Claude, GPT-4, and dozens of other AI models through OpenRouter, this tool transforms dense learning materials into visual, memorable experiences.
 
-- **Learn Faster**: Reduce 10-hour courses to 1-hour focused learning sessions
-- **Retain More**: Use visual mind maps, patterns, and structured concepts
-- **Pass Exams Easily**: Generate quizzes and identify key concepts automatically
-- **Understand Better**: Simplify complex content with AI-powered explanations
+Inspired by visual learning principles and pattern recognition, this extension helps you:
+
+- **Learn Faster**: Turn 10-hour courses into 1-hour focused learning sessions
+- **Retain More**: Build visual mind maps, spot patterns, and organize concepts that stick
+- **Pass Exams Easily**: Generate custom quizzes and automatically identify what matters most
+- **Understand Better**: Break down complex content with AI-powered explanations tailored to your level
 
 ## ✨ Features
 
@@ -60,33 +62,42 @@ This design creates a focused, serious learning atmosphere while incorporating c
 
 ### Prerequisites
 1. Chrome or Edge browser (Manifest V3 compatible)
-2. Google Gemini API key ([Get one here](https://makersuite.google.com/app/apikey))
-3. (Optional) Google Imagen API key for visual generation
+2. **Choose your AI provider:**
+   - **Google Gemini API** ([Get free key here](https://makersuite.google.com/app/apikey)) - Simple setup, great for getting started
+   - **OpenRouter** ([Sign up here](https://openrouter.ai/)) - Access to 100+ models including Claude, GPT-4, Mistral, and more
+3. (Optional) Image generation API for creating visual infographics
 
 ### Setup Instructions
 
 1. **Clone or Download** this repository
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/the-ai-entrepreneur-ai-hub/learnfasterwithai.git
    cd learnfasterwithai
    ```
 
 2. **Load the Extension**
-   - Open Chrome/Edge and navigate to `chrome://extensions/`
-   - Enable "Developer mode" (toggle in top-right)
+   - Open Chrome/Edge and go to `chrome://extensions/`
+   - Flip on "Developer mode" (toggle in top-right corner)
    - Click "Load unpacked"
    - Select the `learnfasterwithai` folder
 
-3. **Configure API Keys**
+3. **Configure Your AI Provider**
    - Click the extension icon in your browser
-   - Click "Settings" (⚙️ button)
-   - Enter your Google Gemini API key (required)
-   - Enter your Imagen API key (optional, for visual generation)
+   - Hit the Settings button (⚙️)
+   - **For Google Gemini:**
+     - Select "Google AI" as provider
+     - Paste your Gemini API key
+     - Choose your preferred model
+   - **For OpenRouter:**
+     - Select "OpenRouter" as provider
+     - Paste your OpenRouter API key
+     - Pick from models like Claude 3.5 Sonnet, GPT-4, or any other supported model
+     - (Optional) Add an image model for visual generation
    - Click "Save Settings"
 
 4. **Start Learning!**
-   - Navigate to any learning resource (article, documentation, course page)
-   - Click the floating action button (bottom-right)
+   - Head to any learning resource (article, docs, course page)
+   - Click the floating AI button (bottom-right corner)
    - Or click the extension icon and choose "Analyze This Page"
 
 ## 📖 How to Use
@@ -159,20 +170,29 @@ learnfasterwithai/
 
 ### Key Technologies
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **APIs**:
-  - Google Gemini Pro (text processing)
-  - Google Imagen (image generation)
+- **AI Providers**:
+  - **Google Gemini API**: Fast, reliable text processing with multiple Gemini models
+  - **OpenRouter**: Multi-model hub with access to Claude, GPT-4, Llama, Mistral, and 100+ other models
+  - **Image Generation**: Support for Google Imagen, Stable Diffusion, DALL-E, and other image models
 - **Storage**: Chrome Storage API (sync + local)
 - **Manifest**: V3 (latest Chrome extension standard)
 
-### API Integration
+### AI Integration
 
-The extension uses Google's Generative AI APIs:
+The extension gives you flexibility in choosing your AI backend:
 
-1. **Gemini Pro**: Content analysis, summarization, concept extraction
-2. **Imagen**: Visual generation for infographics
+1. **Google Gemini** (Direct API):
+   - Multiple Gemini models (Pro, Flash, etc.)
+   - Content analysis, summarization, concept extraction
+   - Image generation via Imagen
 
-All processing happens client-side with direct API calls - no backend server required.
+2. **OpenRouter** (Multi-Model Hub):
+   - **Text Models**: Claude 3.5 Sonnet, GPT-4, Mistral, Llama 3, and more
+   - **Image Models**: Stable Diffusion XL, DALL-E, Flux, and others
+   - Switch between models based on your needs and budget
+   - Pay-as-you-go pricing with credits
+
+All processing happens client-side with direct API calls - no backend server needed, no data collection, and your API keys stay secure in Chrome's encrypted storage.
 
 ## 🎯 Use Cases
 
@@ -203,24 +223,33 @@ Your learning data stays private. The extension only sends content to Google's A
 ## 🚧 Future Enhancements
 
 - [ ] PDF.js integration for better PDF processing
-- [ ] Advanced quiz UI with scoring
-- [ ] Spaced repetition system
-- [ ] Flashcard mode
-- [ ] Collaborative learning (share mind maps)
-- [ ] Multiple AI model support
-- [ ] Video transcript extraction improvements
+- [ ] Advanced quiz UI with scoring and analytics
+- [ ] Spaced repetition system for long-term retention
+- [ ] Flashcard mode with active recall
+- [ ] Collaborative learning (share and remix mind maps)
+- [ ] Additional AI providers (Anthropic Direct, Cohere, etc.)
+- [ ] Enhanced video transcript extraction
 - [ ] Mobile companion app
+- [ ] Offline mode for previously processed content
 
 ## 🤝 Contributing
 
-Contributions are welcome! This extension is built to help students worldwide learn better.
+We'd love your help making this extension even better! Whether you're fixing bugs, adding features, or improving documentation, every contribution helps students learn more effectively.
 
 ### How to Contribute
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes and test them thoroughly
+4. Commit your changes with clear messages
+5. Push to your branch
+6. Open a pull request and describe what you've built
+
+Ideas for contributions:
+- New visualization types
+- Additional AI provider integrations
+- Improved quiz generation algorithms
+- Better content extraction for specific platforms
+- Translations and internationalization
 
 ## 📄 License
 
@@ -228,15 +257,19 @@ MIT License - Feel free to use, modify, and distribute.
 
 ## 🙏 Acknowledgments
 
-- **Brian Tracy**: For visual learning principles
-- **Google**: For Gemini and Imagen APIs
-- **Open Source Community**: For inspiration and tools
+- **Visual Learning Pioneers**: For proving that the brain thinks in patterns and pictures
+- **Google**: For making Gemini and Imagen accessible to developers
+- **OpenRouter**: For democratizing access to cutting-edge AI models
+- **Open Source Community**: For building tools that help the world learn better
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/ai-learning-accelerator/issues)
-- **Documentation**: See this README
-- **API Keys**: [Google AI Studio](https://makersuite.google.com/app/apikey)
+- **Issues & Bug Reports**: [GitHub Issues](https://github.com/the-ai-entrepreneur-ai-hub/learnfasterwithai/issues)
+- **Feature Requests**: Open an issue with your ideas!
+- **Documentation**: This README + inline code comments
+- **API Keys**:
+  - [Google AI Studio](https://makersuite.google.com/app/apikey) for Gemini
+  - [OpenRouter](https://openrouter.ai/keys) for multi-model access
 
 ---
 
