@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Learning Accelerator - Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="settings-container">
+
+    <!-- Header -->
+    <header class="settings-header">
+      <div class="header-ornament"></div>
+      <h1 class="settings-title">Learn with DeepMind</h1>
+      <p class="settings-subtitle">Configuration & Settings</p>
+      <div class="header-ornament"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="settings-content">
+
+      <!-- API Configuration Section -->
+      <section class="settings-section">
+        <h2 class="section-title">
+          <span class="section-icon">🔑</span>
+          API Configuration
+        </h2>
+
+        <div class="setting-card">
+          <div class="setting-header">
+            <h3>AI Provider</h3>
+            <span class="badge optional">Flexible</span>
+          </div>
+          <p class="setting-description">
+            Choose which platform powers summaries, concept extraction, and visual generation.
+          </p>
+          <div class="provider-grid">
+            <label class="provider-option">
+              <input type="radio" name="provider" value="google" id="provider-google">
+              <div class="provider-body">
+                <div class="provider-title">Google AI (Gemini & Imagen)</div>
+                <p class="provider-meta">Fast setup for Gemini text + Imagen visuals</p>
+              </div>
+            </label>
+            <label class="provider-option">
+              <input type="radio" name="provider" value="openrouter" id="provider-openrouter">
+              <div class="provider-body">
+                <div class="provider-title">OpenRouter (Multi-model Hub)</div>
+                <p class="provider-meta">Bring your own models for text and images</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="setting-card" data-provider-section="google">
+          <div class="setting-header">
+            <h3>Google Gemini API Key</h3>
+            <span class="badge required">Required</span>
+          </div>
+          <p class="setting-description">
+            Enter your Google Gemini API key for AI-powered content processing, summarization, and concept extraction.
+          </p>
+          <div class="input-group">
+            <input
+              type="password"
+              id="gemini-api-key"
+              class="api-input"
+              placeholder="Enter your Gemini API key"
+            />
+            <button class="toggle-visibility" id="toggle-gemini">
+              <span>👁️</span>
+            </button>
+          </div>
+          <div class="model-selector-section">
+            <label for="gemini-model" class="model-label">
+              Gemini Model
+              <button class="refresh-models-btn" id="btn-refresh-models" title="Refresh available models">
+                <span>🔄</span>
+              </button>
+            </label>
+            <select id="gemini-model" class="select-input">
+              <option value="">Loading models...</option>
+            </select>
+            <p class="model-description" id="model-description">
+              Enter your API key and click "Fetch Models" to load available Gemini models.
+            </p>
+          </div>
+          <div class="test-connection-section">
+            <button class="test-connection-btn" id="btn-test-connection">
+              <span class="btn-icon">🔌</span>
+              <span class="btn-text">Test Connection</span>
+            </button>
+            <div class="connection-status" id="connection-status"></div>
+          </div>
+          <div class="setting-footer">
+            <a href="https://makersuite.google.com/app/apikey" target="_blank" class="help-link">
+              Get your API key →
+            </a>
+          </div>
+        </div>
+
+        <div class="setting-card" data-provider-section="google">
+          <div class="setting-header">
+            <h3>Google Imagen API Key</h3>
+            <span class="badge optional">Optional</span>
+          </div>
+          <p class="setting-description">
+            Enter your Google Imagen API key for AI-generated visual learning materials and infographics.
+          </p>
+          <div class="input-group">
+            <input
+              type="password"
+              id="imagen-api-key"
+              class="api-input"
+              placeholder="Enter your Imagen API key (optional)"
+            />
+            <button class="toggle-visibility" id="toggle-imagen">
+              <span>👁️</span>
+            </button>
+          </div>
+          <div class="setting-footer">
+            <a href="https://cloud.google.com/vertex-ai/docs/generative-ai/image/overview" target="_blank" class="help-link">
+              Learn more about Imagen →
+            </a>
+          </div>
+        </div>
+
+        <div class="setting-card" data-provider-section="openrouter">
+          <div class="setting-header">
+            <h3>OpenRouter API Key</h3>
+            <span class="badge required">Required</span>
+          </div>
+          <p class="setting-description">
+            Connect via <a href="https://openrouter.ai" target="_blank">OpenRouter</a> to access community models for text and visuals.
+          </p>
+          <div class="input-group">
+            <input
+              type="password"
+              id="openrouter-api-key"
+              class="api-input"
+              placeholder="Enter your OpenRouter API key"
+            />
+            <button class="toggle-visibility" id="toggle-openrouter">
+              <span>👁️</span>
+            </button>
+          </div>
+          <div class="model-selector-section">
+            <label for="openrouter-text-model" class="model-label">
+              Text Model
+              <button class="refresh-models-btn" id="btn-refresh-openrouter-text" title="Refresh available models">
+                <span>🔄</span>
+              </button>
+            </label>
+            <select id="openrouter-text-model" class="select-input">
+              <option value="">Select a text model</option>
+            </select>
+            <p class="model-description" id="openrouter-text-description">
+              Popular choice: anthropic/claude-3.5-sonnet. Fetch requires a valid OpenRouter key.
+            </p>
+          </div>
+          <div class="model-selector-section">
+            <label for="openrouter-image-model" class="model-label">
+              Image Model
+              <button class="refresh-models-btn" id="btn-refresh-openrouter-image" title="Refresh available models">
+                <span>🔄</span>
+              </button>
+            </label>
+            <select id="openrouter-image-model" class="select-input">
+              <option value="">Select an image model (optional)</option>
+            </select>
+            <p class="model-description" id="openrouter-image-description">
+              Popular choice: stabilityai/stable-diffusion-xl. Leave blank to disable AI visuals.
+            </p>
+          </div>
+          <div class="test-connection-section">
+            <button class="test-connection-btn" id="btn-test-openrouter">
+              <span class="btn-icon">🔌</span>
+              <span class="btn-text">Test OpenRouter</span>
+            </button>
+            <div class="connection-status" id="openrouter-connection-status"></div>
+          </div>
+          <div class="setting-footer">
+            <a href="https://openrouter.ai/keys" target="_blank" class="help-link">
+              Manage your OpenRouter key →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Learning Preferences Section -->
+      <section class="settings-section">
+        <h2 class="section-title">
+          <span class="section-icon">⚙️</span>
+          Learning Preferences
+        </h2>
+
+        <div class="setting-card">
+          <div class="setting-header">
+            <h3>Content Complexity</h3>
+          </div>
+          <p class="setting-description">
+            Choose how simplified you want the processed content to be.
+          </p>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="complexity" value="simple" />
+              <span class="radio-text">
+                <strong>Simple</strong> - Maximum simplification for easy understanding
+              </span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="complexity" value="moderate" checked />
+              <span class="radio-text">
+                <strong>Moderate</strong> - Balanced between clarity and detail
+              </span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="complexity" value="advanced" />
+              <span class="radio-text">
+                <strong>Advanced</strong> - Preserve technical depth
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="setting-card">
+          <div class="setting-header">
+            <h3>Visualization Density</h3>
+          </div>
+          <p class="setting-description">
+            Control how much information to include in mind maps and diagrams.
+          </p>
+          <div class="slider-group">
+            <input
+              type="range"
+              id="viz-density"
+              min="1"
+              max="10"
+              value="5"
+              class="slider"
+            />
+            <div class="slider-labels">
+              <span>Minimal</span>
+              <span>Detailed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="setting-card">
+          <div class="setting-header">
+            <h3>Default Language</h3>
+          </div>
+          <p class="setting-description">
+            Set your preferred language for simplified explanations.
+          </p>
+          <select id="language-select" class="select-input">
+            <option value="en">English</option>
+            <option value="es">Español (Spanish)</option>
+            <option value="fr">Français (French)</option>
+            <option value="de">Deutsch (German)</option>
+            <option value="pt">Português (Portuguese)</option>
+            <option value="zh">中文 (Chinese)</option>
+            <option value="ja">日本語 (Japanese)</option>
+            <option value="ar">العربية (Arabic)</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Data Management Section -->
+      <section class="settings-section">
+        <h2 class="section-title">
+          <span class="section-icon">💾</span>
+          Data Management
+        </h2>
+
+        <div class="setting-card">
+          <div class="setting-header">
+            <h3>Learning Library</h3>
+          </div>
+          <div class="data-stats">
+            <div class="stat-item">
+              <span class="stat-label">Materials Processed</span>
+              <span class="stat-value" id="stat-materials">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Concepts Learned</span>
+              <span class="stat-value" id="stat-concepts">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Library Items</span>
+              <span class="stat-value" id="stat-library">0</span>
+            </div>
+          </div>
+          <div class="button-group">
+            <button class="action-btn secondary" id="btn-export-data">
+              <span>📤</span> Export Library
+            </button>
+            <button class="action-btn danger" id="btn-clear-library">
+              <span>🗑️</span> Clear Library
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Start Guide Section -->
+      <section class="settings-section">
+        <h2 class="section-title">
+          <span class="section-icon">🚀</span>
+          Quick Start Guide
+        </h2>
+
+        <div class="setting-card tutorial-card">
+          <h3 class="tutorial-title">How to Use Learn with DeepMind</h3>
+
+          <div class="tutorial-steps">
+            <div class="tutorial-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Get Your API Key</h4>
+                <p>Visit <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a>, create an API key, and paste it above.</p>
+              </div>
+            </div>
+
+            <div class="tutorial-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Test & Save Your Settings</h4>
+                <p>Click "Test Connection" to verify your key works, then click "Save Settings" below.</p>
+              </div>
+            </div>
+
+            <div class="tutorial-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Navigate to Learning Content</h4>
+                <p>Open any article, blog post, or documentation page you want to learn from.</p>
+              </div>
+            </div>
+
+            <div class="tutorial-step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Click the Floating Button</h4>
+                <p>Look for the circular "AI" button in the bottom-right corner of the page and click it.</p>
+              </div>
+            </div>
+
+            <div class="tutorial-step">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h4>Process Your Content</h4>
+                <p>In the side panel, click "Summarize Content" or any other processing option. Wait 20-60 seconds.</p>
+              </div>
+            </div>
+
+            <div class="tutorial-step">
+              <div class="step-number">6</div>
+              <div class="step-content">
+                <h4>Create Visualizations</h4>
+                <p>Go to the "Visualize" tab and click "Generate Visualization" to create mind maps.</p>
+              </div>
+            </div>
+
+            <div class="tutorial-step">
+              <div class="step-number">7</div>
+              <div class="step-content">
+                <h4>Test Yourself</h4>
+                <p>Use the "Quiz" tab to generate practice questions and test your understanding.</p>
+              </div>
+            </div>
+
+            <div class="tutorial-step">
+              <div class="step-number">8</div>
+              <div class="step-content">
+                <h4>Review Your Library</h4>
+                <p>Access all saved content in the "Library" tab for quick review before exams.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutorial-tips">
+            <h4>💡 Pro Tips</h4>
+            <ul>
+              <li><strong>Start Simple:</strong> Try a Wikipedia article first to get familiar</li>
+              <li><strong>Be Patient:</strong> AI processing takes 20-60 seconds - don't spam click!</li>
+              <li><strong>Use All Features:</strong> Summaries + Mind Maps + Quizzes = Better retention</li>
+              <li><strong>Export Regularly:</strong> Backup your library using the export button above</li>
+            </ul>
+          </div>
+
+          <div class="tutorial-cta">
+            <p class="tutorial-cta-text">Ready to start learning faster?</p>
+            <a href="https://en.wikipedia.org/wiki/Artificial_intelligence" target="_blank" class="tutorial-btn">
+              <span>📚</span> Try on Wikipedia Example
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Save Button -->
+      <div class="save-section">
+        <button class="save-btn" id="btn-save">
+          <span class="btn-icon">💾</span>
+          <span class="btn-text">Save Settings</span>
+        </button>
+        <p class="save-status" id="save-status"></p>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="settings-footer">
+      <div class="footer-content">
+        <p class="footer-text">Learn with DeepMind v1.0.0</p>
+        <div class="footer-quotes">
+          <p class="footer-quote">"The power of visual thinking lies in its ability to connect ideas across time and space."</p>
+          <p class="footer-quote">"Deep learning happens when patterns become second nature."</p>
+        </div>
+        <p class="footer-links">
+          <a href="https://github.com" target="_blank">Documentation</a>
+          <span>•</span>
+          <a href="https://github.com" target="_blank">Report Issue</a>
+          <span>•</span>
+          <a href="https://github.com" target="_blank">Privacy</a>
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

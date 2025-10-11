@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Learning Accelerator</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <!-- Main Container -->
+  <div class="learning-panel">
+
+    <!-- Header -->
+    <header class="panel-header">
+      <div class="header-ornament-top"></div>
+      <h1 class="panel-title">Learn with DeepMind</h1>
+      <p class="panel-tagline">Transform Knowledge into Wisdom</p>
+      <div class="header-ornament-bottom"></div>
+      <div class="inspirational-quotes">
+        <p class="quote">"The mind is like a map - the more connections you draw, the deeper your understanding becomes."</p>
+        <p class="quote">"Visual learning transforms complex information into memorable patterns that last a lifetime."</p>
+      </div>
+    </header>
+
+    <!-- Tab Navigation -->
+    <!-- Tab Navigation with Custom Icons -->
+    <nav class="tab-navigation enhanced">
+      <button class="tab-btn active" data-tab="process">
+        <span class="tab-icon-container">
+          <img src="../../assets/icon32.png" alt="Process" class="tab-icon-image" />
+        </span>
+        <span class="tab-label">Process</span>
+      </button>
+      <button class="tab-btn" data-tab="visualize">
+        <span class="tab-icon-container">
+          <img src="../../assets/icon48.png" alt="Visualize" class="tab-icon-image" />
+        </span>
+        <span class="tab-label">Visualize</span>
+      </button>
+      <button class="tab-btn" data-tab="quiz">
+        <span class="tab-icon-container">
+          <img src="../../assets/icon32.png" alt="Quiz" class="tab-icon-image" />
+        </span>
+        <span class="tab-label">Quiz</span>
+      </button>
+      <button class="tab-btn" data-tab="library">
+        <span class="tab-icon-container">
+          <img src="../../assets/icon32.png" alt="Library" class="tab-icon-image" />
+        </span>
+        <span class="tab-label">Library</span>
+      </button>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="panel-content">
+
+      <!-- Process Tab -->
+      <div class="tab-content active" id="tab-process">
+        <div class="content-card">
+          <h2 class="card-title">Content Processing</h2>
+
+          <div class="content-info" id="content-info">
+            <div class="info-item">
+              <span class="info-label">Source:</span>
+              <span class="info-value" id="source-url">No content loaded</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Words:</span>
+              <span class="info-value" id="word-count">0</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Reading Time:</span>
+              <span class="info-value" id="reading-time">0 min</span>
+            </div>
+            <div class="content-refresh">
+              <button class="refresh-btn" id="btn-refresh-content">
+                <span class="refresh-icon">🔄</span>
+                <span class="refresh-text">Refresh Content</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="action-btn primary" id="btn-summarize">
+              <span class="btn-icon">📋</span>
+              <span class="btn-text">Summarize Content</span>
+            </button>
+            <button class="action-btn secondary" id="btn-extract-concepts">
+              <span class="btn-icon">💡</span>
+              <span class="btn-text">Extract Key Concepts</span>
+            </button>
+            <button class="action-btn secondary" id="btn-simplify">
+              <span class="btn-icon">🔍</span>
+              <span class="btn-text">Simplify Language</span>
+            </button>
+            <button class="action-btn secondary" id="btn-find-patterns">
+              <span class="btn-icon">🧩</span>
+              <span class="btn-text">Identify Patterns</span>
+            </button>
+            <button class="action-btn secondary" id="btn-aggregate">
+              <span class="btn-icon">🌐</span>
+              <span class="btn-text">Find Related Materials</span>
+            </button>
+          </div>
+
+          <div class="result-container" id="process-result">
+            <div class="result-placeholder">
+              <p>Select an action above to process your learning material</p>
+              <div class="vintage-decoration">
+                <span>✦</span>
+                <span>✦</span>
+                <span>✦</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visualize Tab -->
+      <div class="tab-content" id="tab-visualize">
+        <div class="content-card">
+          <h2 class="card-title">Visual Learning</h2>
+
+          <div class="visual-controls">
+            <button class="visual-type-btn active" data-type="mindmap">
+              Mind Map
+            </button>
+            <button class="visual-type-btn" data-type="diagram">
+              Flow Diagram
+            </button>
+            <button class="visual-type-btn" data-type="infographic">
+              Infographic
+            </button>
+          </div>
+
+          <div class="visualization-area" id="visualization-area">
+            <div class="viz-placeholder">
+              <p>Generate a mind map or diagram to visualize concepts</p>
+              <button class="action-btn primary" id="btn-generate-visual">
+                <span class="btn-icon">🎨</span>
+                <span class="btn-text">Generate Visualization</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="visualization-options">
+            <button class="option-btn" id="btn-export-visual">
+              <span>💾</span> Export
+            </button>
+            <button class="option-btn" id="btn-regenerate">
+              <span>🔄</span> Regenerate
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiz Tab -->
+      <div class="tab-content" id="tab-quiz">
+        <div class="content-card">
+          <h2 class="card-title">Interactive Quiz</h2>
+
+          <div class="quiz-controls">
+            <button class="action-btn primary" id="btn-generate-quiz">
+              <span class="btn-icon">🎯</span>
+              <span class="btn-text">Generate Quiz</span>
+            </button>
+          </div>
+
+          <div class="quiz-container" id="quiz-container">
+            <div class="quiz-placeholder">
+              <p>Test your understanding with AI-generated questions</p>
+              <div class="vintage-decoration">
+                <span>✦</span>
+                <span>✦</span>
+                <span>✦</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-results" id="quiz-results"></div>
+        </div>
+      </div>
+
+      <!-- Library Tab -->
+      <div class="tab-content" id="tab-library">
+        <div class="content-card">
+          <h2 class="card-title">Learning Library</h2>
+
+          <div class="library-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="summaries">Summaries</button>
+            <button class="filter-btn" data-filter="mindmaps">Mind Maps</button>
+            <button class="filter-btn" data-filter="quizzes">Quizzes</button>
+          </div>
+
+          <div class="library-items" id="library-items">
+            <div class="library-empty">
+              <p>Your learning library is empty</p>
+              <p class="library-empty-sub">Processed materials will appear here</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Processing your learning material...</p>
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <p class="loading-subtext">This may take a moment</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>

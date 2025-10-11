@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Learning Accelerator</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header">
+      <div class="vintage-border-top"></div>
+      <h1 class="title">Learn with DeepMind</h1>
+      <p class="subtitle">Learn Faster • Retain More</p>
+      <div class="vintage-border-bottom"></div>
+    </div>
+
+    <div class="content">
+      <div class="action-card" id="analyze-page">
+        <div class="card-icon">📚</div>
+        <h3>Analyze This Page</h3>
+        <p>Extract and process current learning material</p>
+      </div>
+
+      <div class="action-card" id="upload-doc">
+        <div class="card-icon">📄</div>
+        <h3>Upload Document</h3>
+        <p>Process PDFs, docs, or learning materials</p>
+      </div>
+
+      <div class="action-card" id="open-library">
+        <div class="card-icon">📖</div>
+        <h3>Learning Library</h3>
+        <p>Access saved materials and mind maps</p>
+      </div>
+
+      <div class="stats-section">
+        <div class="stat">
+          <span class="stat-label">Materials Processed</span>
+          <span class="stat-value" id="materials-count">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Concepts Learned</span>
+          <span class="stat-value" id="concepts-count">0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <button class="settings-btn" id="open-settings">⚙ Settings</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
